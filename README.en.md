@@ -86,4 +86,4 @@ Prohibited uses include:
 - **Company and client projects**: company, employer, organizational, client, or commissioned projects, including internal use, delivery, integration, and evaluation.
 - **Other commercial use**: advertising, lead generation, sponsorships, commissions, commercial promotion, customer acquisition, commercial product development, and any other direct or indirect profit-making or business use.
 
-See the English [LICENSE](LICENSE) for the full terms. The restrictions also apply to modified versions, related services, and outputs used for the activities above. Third-party dependencies retain their own licenses.
+See the [LICENSE](LICENSE) for the full terms. The restrictions also apply to modified versions, related services, and outputs used for the activities above. Third-party dependencies retain their own licenses.
