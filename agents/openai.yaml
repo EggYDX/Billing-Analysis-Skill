@@ -1,4 +1,4 @@
 interface:
   display_name: "账单分析"
-  short_description: "整理个人账单、核对退款与资金往来，生成可追溯的 Excel 报告"
-  default_prompt: "使用 $billing-analysis 分析本期个人账单，核对消费、收入和退款，生成 Excel 报告。"
+  short_description: "整理个人账单，看清每一笔开支，让你的钱花得更聪明。"
+  default_prompt: "使用 $billing-analysis 分析本期个人账单，核对各类收支，生成 Excel 报告。"
