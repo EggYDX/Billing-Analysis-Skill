@@ -1,0 +1,20 @@
+{
+  "format": "csv",
+  "original_source": "虚构账簿Alpha",
+  "fields": {
+    "trade_time": "日期",
+    "raw_amount": "金额",
+    "flow_direction": "方向",
+    "original_trade_no": "交易号",
+    "raw_counterparty": "对方",
+    "raw_description": "摘要"
+  },
+  "account_key": "虚构账户A",
+  "transaction_id_is_stable": true,
+  "date_formats": [],
+  "direction_values": {
+    "OUT": "支出",
+    "IN": "收入"
+  },
+  "currency": "CNY"
+}

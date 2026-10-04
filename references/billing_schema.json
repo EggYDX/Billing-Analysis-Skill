@@ -1,0 +1,768 @@
+{
+  "schema_version": "2.0",
+  "description": "定义账单字段与可执行契约。",
+  "contracts": {
+    "evidence_ref": {
+      "fields": {
+        "file": "string",
+        "sha256": "sha256",
+        "record_ids": "string[]",
+        "event_ids": "string[]",
+        "confirmation_ids": "string[]",
+        "sheet": "string|null",
+        "row": "integer|null"
+      },
+      "optional": [
+        "record_ids",
+        "event_ids",
+        "confirmation_ids",
+        "sheet",
+        "row"
+      ]
+    },
+    "location": {
+      "fields": {
+        "file": "string",
+        "sha256": "sha256",
+        "sheet": "string|null",
+        "row": "integer"
+      },
+      "optional": []
+    },
+    "manifest": {
+      "fields": {
+        "file": "string",
+        "sha256": "sha256",
+        "original_name": "string",
+        "original_source": "string|null",
+        "account_key": "string|null",
+        "role": "source_role",
+        "read_status": "read_status",
+        "record_count": "integer",
+        "mapping": "source_mapping|null"
+      },
+      "optional": []
+    },
+    "raw_record": {
+      "fields": {
+        "record_id": "string",
+        "original_source": "string",
+        "account_key": "string|null",
+        "original_trade_no": "string|null",
+        "trade_time": "datetime",
+        "time_precision": "time_precision",
+        "raw_amount": "number",
+        "flow_direction": "flow_direction",
+        "currency": "currency",
+        "raw_counterparty": "text",
+        "raw_description": "text",
+        "raw_status": "text",
+        "raw_fields": "map:scalar",
+        "source_location": "location"
+      },
+      "optional": []
+    },
+    "normalized_record": {
+      "fields": {
+        "record_id": "string",
+        "raw_record_ids": "string[]",
+        "original_source": "string",
+        "account_key": "string|null",
+        "original_trade_no": "string|null",
+        "trade_time": "datetime",
+        "time_precision": "time_precision",
+        "raw_amount": "number",
+        "flow_direction": "flow_direction",
+        "currency": "currency",
+        "raw_counterparty": "text",
+        "raw_description": "text",
+        "raw_status": "text",
+        "source_locations": "location[]"
+      },
+      "optional": []
+    },
+    "rejected_row": {
+      "fields": {
+        "file": "string",
+        "sheet": "string|null",
+        "row": "integer",
+        "reason": "string",
+        "raw_fields": "map:scalar"
+      },
+      "optional": []
+    },
+    "standardized": {
+      "fields": {
+        "schema_version": "string",
+        "period_id": "period",
+        "currency": "currency",
+        "amount_precision": "integer",
+        "raw_records": "raw_record[]",
+        "normalized_records": "normalized_record[]",
+        "source_manifest": "manifest[]",
+        "rejected_rows": "rejected_row[]"
+      },
+      "optional": []
+    },
+    "record_allocation": {
+      "fields": {
+        "record_id": "string",
+        "amount": "number",
+        "role": "allocation_role"
+      },
+      "optional": []
+    },
+    "economic_event": {
+      "fields": {
+        "event_id": "string",
+        "period_id": "period",
+        "cashflow_period": "period",
+        "trade_time": "datetime",
+        "currency": "currency",
+        "economic_type": "economic_type",
+        "cashflow_direction": "flow_direction",
+        "cashflow_amount": "number",
+        "record_allocations": "record_allocation[]",
+        "gross_expense": "number",
+        "refund_amount": "number",
+        "reimbursement_amount": "number",
+        "net_expense": "number",
+        "income_amount": "number",
+        "principal_amount": "number",
+        "unsettled_amount": "number",
+        "category_l1": "string|null",
+        "category_l2": "string|null",
+        "expense_attribute": "expense_attribute",
+        "recurrence_type": "recurrence_type",
+        "baseline_included": "boolean|null",
+        "personal_baseline_included": "boolean|null",
+        "is_adjustable": "boolean|null",
+        "data_status": "fact_status",
+        "confidence": "confidence",
+        "evidence_refs": "evidence_ref[]",
+        "audit_notes": "text"
+      },
+      "optional": []
+    },
+    "events_file": {
+      "fields": {
+        "schema_version": "string",
+        "period_id": "period",
+        "economic_events": "economic_event[]"
+      },
+      "optional": []
+    },
+    "match_link": {
+      "fields": {
+        "match_link_id": "string",
+        "match_type": "match_type",
+        "source_event_id": "string|null",
+        "target_event_id": "string|null",
+        "record_ids": "string[]",
+        "currency": "currency",
+        "applied_amount": "number",
+        "data_status": "fact_status",
+        "evidence_refs": "evidence_ref[]",
+        "audit_notes": "text"
+      },
+      "optional": []
+    },
+    "links_file": {
+      "fields": {
+        "schema_version": "string",
+        "period_id": "period",
+        "match_links": "match_link[]"
+      },
+      "optional": []
+    },
+    "confirmation": {
+      "fields": {
+        "confirmation_id": "string",
+        "question": "string",
+        "answer": "string",
+        "record_ids": "string[]",
+        "event_ids": "string[]",
+        "evidence_refs": "evidence_ref[]"
+      },
+      "optional": []
+    },
+    "confirmations_file": {
+      "fields": {
+        "schema_version": "string",
+        "period_id": "period",
+        "confirmations": "confirmation[]"
+      },
+      "optional": []
+    },
+    "period_scope": {
+      "fields": {
+        "coverage_start": "date",
+        "coverage_end": "date",
+        "observed_days": "integer",
+        "is_full_period": "boolean",
+        "context_group": "string",
+        "definition_version": "string"
+      },
+      "optional": []
+    },
+    "completeness": {
+      "fields": {
+        "expense": "completeness_status",
+        "income": "completeness_status",
+        "obligations": "completeness_status",
+        "missing_sources": "string[]"
+      },
+      "optional": []
+    },
+    "revision": {
+      "fields": {
+        "changed_at": "datetime",
+        "reason": "string",
+        "before": "json",
+        "after": "json",
+        "evidence_refs": "evidence_ref[]"
+      },
+      "optional": []
+    },
+    "goal_target": {
+      "fields": {
+        "low": "number",
+        "high": "number",
+        "condition": "string"
+      },
+      "optional": [
+        "low",
+        "high",
+        "condition"
+      ]
+    },
+    "goal": {
+      "fields": {
+        "goal_id": "string",
+        "origin_period": "period",
+        "target_period": "period",
+        "currency": "currency",
+        "definition_version": "string",
+        "metric_key": "string",
+        "operator": "goal_operator",
+        "target_value": "json",
+        "actual_value": "number|null",
+        "goal_status": "goal_status",
+        "evidence_refs": "evidence_ref[]",
+        "acceptance_evidence_refs": "evidence_ref[]",
+        "revisions": "revision[]"
+      },
+      "optional": []
+    },
+    "payment_schedule_item": {
+      "fields": {
+        "payment_id": "string",
+        "due_date": "date|null",
+        "currency": "currency",
+        "amount": "number|null",
+        "principal": "number|null",
+        "interest_and_fees": "number|null",
+        "status": "fact_status",
+        "payment_status": "payment_status",
+        "evidence_refs": "evidence_ref[]"
+      },
+      "optional": []
+    },
+    "obligation": {
+      "fields": {
+        "obligation_id": "string",
+        "currency": "currency",
+        "obligation_type": "obligation_type|null",
+        "obligation_status": "obligation_status",
+        "service_start": "date|null",
+        "service_end": "date|null",
+        "remaining_principal": "number|null",
+        "payment_schedule": "payment_schedule_item[]|null",
+        "data_status": "fact_status",
+        "evidence_refs": "evidence_ref[]",
+        "revisions": "revision[]"
+      },
+      "optional": []
+    },
+    "analysis_context": {
+      "fields": {
+        "schema_version": "string",
+        "period_id": "period",
+        "currency": "currency",
+        "amount_precision": "integer",
+        "period": "period_scope",
+        "completeness": "completeness",
+        "confirmation_refs": "evidence_ref[]",
+        "goal_changes": "goal[]",
+        "obligation_changes": "obligation[]"
+      },
+      "optional": []
+    },
+    "metric": {
+      "fields": {
+        "value": "number|null",
+        "status": "data_status",
+        "unit": "metric_unit",
+        "currency": "currency|null",
+        "confidence": "confidence",
+        "definition": "string",
+        "evidence_refs": "evidence_ref[]"
+      },
+      "optional": []
+    },
+    "category": {
+      "fields": {
+        "category_l1": "string",
+        "amount": "number",
+        "count": "integer",
+        "currency": "currency",
+        "evidence_refs": "evidence_ref[]"
+      },
+      "optional": []
+    },
+    "normal_range": {
+      "fields": {
+        "low": "number",
+        "high": "number",
+        "method": "range_method"
+      },
+      "optional": []
+    },
+    "comparison": {
+      "fields": {
+        "status": "data_status",
+        "reference_period_ids": "period[]",
+        "sample_count": "integer",
+        "definition_version": "string",
+        "metric_key": "string",
+        "currency": "currency",
+        "reference_value": "number|null",
+        "reference_method": "reference_method|null",
+        "delta": "number|null",
+        "delta_ratio": "number|null",
+        "normal_range": "normal_range|null"
+      },
+      "optional": []
+    },
+    "audit_table": {
+      "fields": {
+        "entity": "string",
+        "columns": "string[]",
+        "rows": "json[]",
+        "evidence_refs": "evidence_ref[]"
+      },
+      "optional": []
+    },
+    "visible_when": {
+      "fields": {
+        "data_ref": "string",
+        "status_in": "string[]"
+      },
+      "optional": []
+    },
+    "section": {
+      "fields": {
+        "copy_id": "string",
+        "text": "text",
+        "data_refs": "string[]",
+        "evidence_refs": "evidence_ref[]",
+        "visible_when": "visible_when|null"
+      },
+      "optional": []
+    },
+    "report_copy": {
+      "fields": {
+        "schema_version": "string",
+        "period_id": "period",
+        "data_sha256": "sha256",
+        "strings": "map:string",
+        "sections": "section[]"
+      },
+      "optional": []
+    },
+    "report_data": {
+      "fields": {
+        "schema_version": "string",
+        "period_id": "period",
+        "publication_status": "publication_status",
+        "currency": "currency",
+        "amount_precision": "integer",
+        "period": "period_scope",
+        "metrics": "map:metric",
+        "categories": "category[]",
+        "completeness": "completeness",
+        "comparison": "comparison",
+        "goals": "goal[]",
+        "obligations": "obligation[]",
+        "audit_tables": "map:audit_table",
+        "source_manifest": "manifest[]",
+        "input_manifest": "evidence_ref[]"
+      },
+      "optional": []
+    },
+    "period_summary": {
+      "fields": {
+        "period_id": "period",
+        "currency": "currency",
+        "amount_precision": "integer",
+        "period": "period_scope",
+        "data_status": "fact_status",
+        "metrics": "map:metric",
+        "categories": "category[]",
+        "completeness": "completeness",
+        "comparison": "comparison",
+        "source_manifest": "manifest[]",
+        "evidence_refs": "evidence_ref[]",
+        "event_snapshots": "economic_event[]",
+        "link_snapshots": "match_link[]",
+        "revisions": "revision[]"
+      },
+      "optional": []
+    },
+    "period_state": {
+      "fields": {
+        "schema_version": "string",
+        "periods": "map:period_summary"
+      },
+      "optional": []
+    },
+    "goal_state": {
+      "fields": {
+        "schema_version": "string",
+        "goals": "goal[]"
+      },
+      "optional": []
+    },
+    "obligation_state": {
+      "fields": {
+        "schema_version": "string",
+        "currency": "currency|null",
+        "data_status": "fact_status",
+        "obligations": "obligation[]",
+        "evidence_refs": "evidence_ref[]",
+        "revisions": "revision[]"
+      },
+      "optional": []
+    },
+    "delivery_audit": {
+      "fields": {
+        "schema_version": "string",
+        "period_id": "period",
+        "report_data_sha256": "sha256",
+        "report_copy_sha256": "sha256",
+        "workbook": "string",
+        "workbook_sha256": "sha256",
+        "status": "audit_status"
+      },
+      "optional": []
+    },
+    "source_mapping": {
+      "fields": {
+        "format": "input_format",
+        "original_source": "string",
+        "fields": "map:string",
+        "account_key": "string|null",
+        "transaction_id_is_stable": "boolean",
+        "date_formats": "string[]",
+        "direction_values": "map:flow_direction",
+        "currency": "currency|null",
+        "amount_multiplier": "number",
+        "encoding": "string",
+        "delimiter": "string",
+        "header_row": "integer",
+        "sheet": "string|null"
+      },
+      "optional": [
+        "account_key",
+        "date_formats",
+        "currency",
+        "amount_multiplier",
+        "encoding",
+        "delimiter",
+        "header_row",
+        "sheet"
+      ]
+    },
+    "rule": {
+      "fields": {
+        "rule_id": "string",
+        "match": "map:string",
+        "suggested": "map:scalar",
+        "evidence_refs": "evidence_ref[]"
+      },
+      "optional": []
+    },
+    "merchant_rules": {
+      "fields": {
+        "schema_version": "string",
+        "rules": "rule[]"
+      },
+      "optional": []
+    }
+  },
+  "enums": {
+    "flow_direction": [
+      "支出",
+      "收入",
+      "不适用"
+    ],
+    "economic_type": [
+      "消费",
+      "真实收入",
+      "内部转账",
+      "退款",
+      "AA回款",
+      "代付垫资",
+      "偿还本金",
+      "其他"
+    ],
+    "expense_attribute": [
+      "刚需",
+      "弹性",
+      "资产投入",
+      "无"
+    ],
+    "recurrence_type": [
+      "经常性",
+      "周期性",
+      "一次性",
+      "阶段性",
+      "未知",
+      "不适用"
+    ],
+    "fact_status": [
+      "confirmed",
+      "partial",
+      "unknown"
+    ],
+    "data_status": [
+      "confirmed",
+      "partial",
+      "unknown",
+      "not_applicable",
+      "insufficient_history",
+      "insufficient_data"
+    ],
+    "confidence": [
+      "高",
+      "中",
+      "低",
+      null
+    ],
+    "completeness_status": [
+      "complete",
+      "partial",
+      "unknown"
+    ],
+    "match_type": [
+      "跨平台重复",
+      "退款匹配",
+      "AA匹配",
+      "资金链"
+    ],
+    "goal_status": [
+      "proposed",
+      "accepted",
+      "achieved",
+      "missed",
+      "insufficient_data",
+      "cancelled"
+    ],
+    "goal_operator": [
+      "<=",
+      ">=",
+      "range",
+      "condition"
+    ],
+    "obligation_type": [
+      "订阅/固定服务",
+      "分期",
+      "贷款",
+      "信用卡偿付",
+      "其他固定付款"
+    ],
+    "obligation_status": [
+      "active",
+      "settled",
+      "closed",
+      "cancelled",
+      "unknown"
+    ],
+    "payment_status": [
+      "scheduled",
+      "paid",
+      "cancelled",
+      "unknown"
+    ],
+    "source_role": [
+      "raw",
+      "structured",
+      "confirmation"
+    ],
+    "read_status": [
+      "read",
+      "needs_reading"
+    ],
+    "time_precision": [
+      "date",
+      "datetime"
+    ],
+    "allocation_role": [
+      "primary",
+      "duplicate",
+      "funding"
+    ],
+    "metric_unit": [
+      "currency",
+      "currency_per_day",
+      "currency_per_30_days",
+      "count",
+      "ratio"
+    ],
+    "range_method": [
+      "linear_P25_P75"
+    ],
+    "reference_method": [
+      "median"
+    ],
+    "publication_status": [
+      "final"
+    ],
+    "audit_status": [
+      "passed"
+    ],
+    "input_format": [
+      "csv",
+      "tsv",
+      "xlsx",
+      "standardized_json"
+    ]
+  },
+  "audit_display_fields": {
+    "raw_record": [
+      "record_id",
+      "original_source",
+      "account_key",
+      "original_trade_no",
+      "trade_time",
+      "time_precision",
+      "raw_amount",
+      "flow_direction",
+      "currency",
+      "raw_counterparty",
+      "raw_description",
+      "raw_status",
+      "source_location"
+    ],
+    "normalized_record": [
+      "record_id",
+      "raw_record_ids",
+      "original_source",
+      "account_key",
+      "original_trade_no",
+      "trade_time",
+      "time_precision",
+      "raw_amount",
+      "flow_direction",
+      "currency",
+      "raw_counterparty",
+      "raw_description",
+      "raw_status",
+      "source_locations"
+    ],
+    "economic_event": [
+      "event_id",
+      "period_id",
+      "cashflow_period",
+      "trade_time",
+      "currency",
+      "economic_type",
+      "cashflow_direction",
+      "cashflow_amount",
+      "record_allocations",
+      "gross_expense",
+      "refund_amount",
+      "reimbursement_amount",
+      "net_expense",
+      "income_amount",
+      "principal_amount",
+      "unsettled_amount",
+      "category_l1",
+      "category_l2",
+      "expense_attribute",
+      "recurrence_type",
+      "baseline_included",
+      "personal_baseline_included",
+      "is_adjustable",
+      "data_status",
+      "confidence"
+    ],
+    "match_link": [
+      "match_link_id",
+      "match_type",
+      "source_event_id",
+      "target_event_id",
+      "record_ids",
+      "currency",
+      "applied_amount",
+      "data_status"
+    ]
+  },
+  "metric_definitions": {
+    "net_expense": "本期真实经济事件净支出",
+    "real_income": "本期真实收入",
+    "net_surplus": "已覆盖收入减净支出",
+    "retention_ratio": "完整覆盖收支差额除以真实收入",
+    "daily_living_baseline": "完整覆盖的已确认日常生活基线日均",
+    "daily_personal_baseline": "完整覆盖的已确认个人消费基线日均",
+    "cash_outflow": "本期现金流出",
+    "cash_inflow": "本期现金流入"
+  },
+  "copy_strings": [
+    "title",
+    "missing",
+    "goal",
+    "obligation",
+    "sheet.overview",
+    "sheet.categories",
+    "sheet.raw_record",
+    "sheet.normalized_record",
+    "sheet.economic_event",
+    "sheet.match_link",
+    "sheet.long_term",
+    "header.metric",
+    "header.value",
+    "header.status",
+    "header.unit",
+    "header.currency",
+    "header.category",
+    "header.amount",
+    "header.count",
+    "header.item",
+    "header.period",
+    "completeness.expense",
+    "completeness.income",
+    "completeness.obligations",
+    "history.status",
+    "history.samples",
+    "history.periods",
+    "history.reference",
+    "history.delta",
+    "unit.currency",
+    "unit.currency_per_day",
+    "unit.currency_per_30_days",
+    "unit.count",
+    "unit.ratio",
+    "goal_status.proposed",
+    "goal_status.accepted",
+    "goal_status.achieved",
+    "goal_status.missed",
+    "goal_status.insufficient_data",
+    "goal_status.cancelled",
+    "obligation_status.active",
+    "obligation_status.settled",
+    "obligation_status.closed",
+    "obligation_status.cancelled",
+    "obligation_status.unknown"
+  ]
+}
