@@ -1,0 +1,31 @@
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Local credentials and editor files
+.env
+.env.*
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+
+# Bill workspaces and generated files
+/state/
+/merchant_rules.json
+/workspace/
+/my-bills/
+/work/
+/outputs/
+[0-9][0-9][0-9][0-9].[0-9]*/
+原始数据/
+处理结果/
+执行记录/
+*.xlsx
+*.xls
+*.pdf
+*.csv
+*.tsv
+!examples/*.csv
+!examples/*.tsv

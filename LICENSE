@@ -1,0 +1,76 @@
+Billing Analysis Personal Non-Commercial License 1.0
+License identifier: LicenseRef-Billing-Analysis-Personal-NonCommercial
+
+Copyright (c) 2026 EggYDX.
+All rights not expressly granted are reserved.
+
+1. Scope
+
+This license applies to the repository's first-party code, Skill instructions,
+documentation, templates, examples, and tests, and to their copies and modified
+versions (the "Project"). "Rights Holder" means EggYDX. Separately licensed
+third-party material and dependencies retain their own terms.
+
+2. Permitted use
+
+Subject to every condition of this license, the Rights Holder grants natural
+persons a limited, non-exclusive, royalty-free license to view, download, copy,
+run, and modify the Project solely for their own private, non-commercial use,
+such as analyzing their own personal bills, personal learning, and private local
+experiments.
+
+Original or modified copies may be shared free of charge for non-commercial
+purposes, provided that this license and existing copyright and attribution
+notices are retained, modifications are clearly identified, and recipients are
+subject to the same restrictions. Redistribution must not expand the rights
+granted here or imply endorsement by the Rights Holder.
+
+3. Prohibited use
+
+The Project, modified versions, components, and capabilities based on them must
+not be used directly or indirectly for:
+
+a. Sales, resale, paid downloads or licensing, or bundling into paid products;
+b. Generating, delivering, or selling reports, workbooks, analyses, or other
+   outputs for a fee;
+c. Subscriptions, memberships, usage-based charges, per-task charges, or other
+   paid services;
+d. Performing bill organization, analysis, reporting, or related tasks for others;
+e. Consulting, training, courses, paid instruction, commercial demonstrations,
+   or other professional services;
+f. Providing, operating, or supporting SaaS, hosted applications, online analysis
+   platforms, or API services;
+g. Company, employer, organizational, client, or commissioned projects, including
+   internal use, delivery, integration, and evaluation, whether or not that
+   particular use or project is separately charged for;
+h. Advertising, lead generation, sponsorships, commissions, commercial promotion,
+   customer acquisition, commercial product development, or any other direct or
+   indirect commercial, profit-making, or business use.
+
+Calling a service or output free, cost-only, donation-based, support-funded, or
+using another label does not permit a prohibited use. The same restrictions
+apply when the Project is used to generate outputs that are subsequently used
+for the activities above. The Project must not be relicensed to permit them.
+
+This license does not change users' rights in their input data or independently
+owned content, and does not require publication of personal bills or private
+modifications. It grants no trademark rights or copyright ownership.
+
+4. Termination
+
+Rights granted by this license terminate automatically upon any breach. The
+person in breach must stop using and distributing the Project and its modified
+versions. Rights not expressly granted remain reserved by the Rights Holder.
+
+5. Disclaimer and limitation of liability
+
+To the maximum extent permitted by applicable law, the Project is provided
+"AS IS", without express or implied warranties, including merchantability,
+fitness for a particular purpose, non-infringement, accuracy, or availability.
+Within that extent, the Rights Holder is not liable for losses, damages, or
+other liability arising from use of, or inability to use, the Project. Liability
+that cannot lawfully be excluded or limited is unaffected.
+
+6. Governing text
+
+This English text is the authoritative license.
